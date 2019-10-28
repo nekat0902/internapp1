@@ -1,0 +1,13 @@
+
+
+<p>
+  <div class="container text-center color-white font30 bg-white">
+    <%= @post.body%>
+
+  </div>
+<div class="">
+  <%= link_to 'Edit', edit_post_path(@post) %>
+  <%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' } %>
+</div>
+
+</p>

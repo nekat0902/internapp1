@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Internapp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%flash.each do |key, value| %>
+      <%= content_tag(:div, value, class: "#{key}") %>
+    <%end%>
+    <div class="main height100">
+      <div class="floatleft position_f">
+        <div class="bg-black padding-30 color-white border-right height100">
+          <ul class="nav flex-sm-column">
+            <li class="nav-item">
+              <%=link_to 'ホーム',posts_path, class:"nav-link"%>
+            </li>
+            <li class="nav-item">
+              <%=link_to '投稿する',new_post_path , class:"nav-link"%>
+            </li>
+            <li class="nav-item">
+              <%=link_to 'logout', destroy_user_session_path, method: :delete, class: "nav-link"%>
+            </li>
+            <li class="nav-item">
+              <%=link_to 'プロフィール',posts_path, class:"nav-link"%>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="floatright">
+        <%= yield %>
+      </div>
+
+    </div>
+
+
+  </body>
+</html>

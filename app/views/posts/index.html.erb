@@ -1,0 +1,32 @@
+
+<div class="home padding25 bg-black2 color-white border-bottom position_r　position_f">
+  <%=link_to 'ホーム',posts_path, class:"text-left padding25"%>
+  <div class="user_position">
+    <%=("user : ")+(current_user.name)%>
+  </div>
+</div>
+
+<div class=" text-center bg-white">
+  <p id="notice"><%= notice %></p>
+    <% @posts.each do |post| %>
+      <%=link_to post do%>
+        <div class="color-white font30 text-left padding-tb30 position_r">
+          <div class="name_position font20">
+            <%=post.user.name%>
+          </div>
+          <div class="body_position ">
+            <%=post.body%>
+          </div>
+        </div>
+        <div class="color-white text-right ma-top-20"><%= post.created_at.strftime("%Y年%m月%d日") %></div>
+      <div class="border"></div>
+      <%end%>
+    <% end %>
+
+
+<br>
+<% if current_user %>
+<%end%>
+
+
+</div>
